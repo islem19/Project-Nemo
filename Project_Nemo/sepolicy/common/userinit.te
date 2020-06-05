@@ -1,0 +1,18 @@
+type userinit, domain, coredomain;
+type userinit_exec, exec_type, file_type;
+
+init_daemon_domain(userinit)
+
+allow userinit system_file:file execute_no_trans;
+allow userinit shell_exec:file execute;
+allow userinit shell_exec:file { open read };
+allow userinit self:capability sys_resource;
+allow userinit shell_exec:file getattr;
+allow userinit servicemanager:binder call;
+allow userinit package_service:service_manager find;
+allow userinit system_server:binder { call transfer };
+allow servicemanager userinit:dir search;
+allow servicemanager userinit:file read;
+allow servicemanager userinit:file open;
+allow servicemanager userinit:process getattr;
+allow system_server userinit:binder call;

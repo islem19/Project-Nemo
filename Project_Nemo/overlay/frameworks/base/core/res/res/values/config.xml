@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+** Copyright 2009, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+
+<!-- These resources are around just to allow their values to be customized
+     for different hardware and product builds.  Do not translate.
+
+     NOTE: The naming convention is "config_camelCaseValue". Some legacy
+     entries do not follow the convention, but all new entries should. -->
+
+<!--<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">-->
+
+<resources>
+
+<!-- Long Power button => Global Action Menu -->
+<integer name="config_longPressOnPowerBehavior">1</integer>
+<!--Turn on screen on unplug usb/power-->
+<bool name="config_unplugTurnsOnScreen">true</bool>
+<!-- Flag indicating whether we should enable the automatic brightness in Settings -->
+<bool name="config_automatic_brightness_available">true</bool>
+
+<!--  Maximum number of supported users -->
+<integer name="config_multiuserMaximumUsers">8</integer>
+<!-- Whether UI for multi user should be shown -->
+<bool name="config_enableMultiUserUI">true</bool>
+<!--Display critical battery warning when battery level dips to this value. -->
+<integer name="config_criticalBatteryWarningLevel">10</integer>
+<!--Display low battery warning when battery level dips to this value. -->
+<integer name="config_lowBatteryWarningLevels">30</integer>
+<!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius.-->
+<integer name="config_shutdownBatteryTemperature">500</integer>
+<!-- The default suggested battery % at which we enable battery saver automatically.-->
+<integer name="config_lowBatteryAutoTriggerDefaultLevel">25</integer>
+
+<!-- AlwaysOnDisplay  -->
+<bool name="config_dozeAlwaysOnDisplayAvailable">false</bool>
+<!-- Component name for default assistant on this device -->
+<string name="config_defaultAssistantComponentName">com.google.android.googlequicksearchbox/com.google.android.voiceinteraction.GsaVoiceInteractionService</string>
+
+<!-- Round ICONS for system-->
+<!-- <string name="config_icon_mask" translatable="false">"M50 0C77.6 0 100 22.4 100 50C100 77.6 77.6 100 50 100C22.4 100 0 77.6 0 50C0 22.4 22.4 0 50 0Z"</string>
+-->
+<bool name="config_useRoundIcon">true</bool>
+<!-- Add Home button gestures -->
+<bool name="config_swipe_up_gesture_setting_available">true</bool>
+<!-- Whether or not swipe up gesture is enabled by default -->
+<bool name="config_swipe_up_gesture_default">true</bool>
+
+<bool name="config_smart_battery_available">true</bool>
+<!-- Night mode setup -->
+<bool name="config_setColorTransformAccelerated">true</bool>
+<!-- Freefom multi screen window -->
+<bool name="config_freeformWindowManagement">true</bool>
+<!-- Gestures -->
+<bool name="config_fingerprintSupportsGestures">true</bool>
+
+<string-array name="config_locationProviderPackageNames" translatable="false">
+        <!-- The Google provider -->
+        <item>com.google.android.gms</item>
+        <!-- The standard AOSP fused location provider -->
+        <item>com.android.location.fused</item>
+</string-array>
+
+
+    <!-- Enable doze mode ComponentName of a dream to show whenever the system would otherwise have gone to sleep. -->
+    <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
+    <!-- If true, the doze component is not started until after the screen has been turned off
+     and the screen off animation has been performed. -->
+    <bool name="config_dozeAfterScreenOffByDefault">true</bool>
+    <!-- Doze: should the TYPE_PICK_UP_GESTURE sensor be used as a pulse signal. -->
+    <bool name="config_dozePulsePickup">true</bool>
+   <!-- Whether the display blanks itself when transition from a doze to a non-doze state -->
+    <bool name="config_displayBlanksAfterDoze">true</bool>
+        <!-- Set lowmemorykiller threshold -->
+
+    <bool name="config_enableAutoPowerModes">true</bool>
+    <!-- Whether device supports double tap to wake -->
+    <bool name="config_supportDoubleTapWake">true</bool>
+    <!-- If this is true, device supports Sustained Performance Mode. -->
+    <bool name="config_sustainedPerformanceModeSupported">true</bool>
+
+        <!-- Allow automatic adjusting of the screen brightness while dozing in low power state. -->
+    <bool name="config_allowAutoBrightnessWhileDozing">true</bool>
+
+    <!-- Power Management: Specifies whether to decouple the auto-suspend state of the
+            device from the display on/off state.
+            When false, autosuspend_disable() will be called before the display is turned on
+            and autosuspend_enable() will be called after the display is turned off.
+            This mode provides best compatibility for devices using legacy power management
+            features such as early suspend / late resume.
+            When true, autosuspend_display() and autosuspend_enable() will be called
+            independently of whether the display is being turned on or off.  This mode
+            enables the power manager to suspend the application processor while the
+            display is on.
+            This resource should be set to "true" when a doze component has been specified
+            to maximize power savings but not all devices support it.
+            Refer to autosuspend.h for details.
+       -->
+    <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool>
+
+        <!-- Power Management: Specifies whether to decouple the interactive state of the
+            device from the display on/off state.
+            When false, setInteractive(..., true) will be called before the display is turned on
+            and setInteractive(..., false) will be called after the display is turned off.
+            This mode provides best compatibility for devices that expect the interactive
+            state to be tied to the display state.
+            When true, setInteractive(...) will be called independently of whether the display
+            is being turned on or off.  This mode enables the power manager to reduce
+            clocks and disable the touch controller while the display is on.
+            This resource should be set to "true" when a doze component has been specified
+            to maximize power savings but not all devices support it.
+            Refer to power.h for details.
+       -->
+    <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
+
+        <!-- Indicate whether to allow the device to suspend when the screen is off
+         due to the proximity sensor.  This resource should only be set to true
+         if the sensor HAL correctly handles the proximity sensor as a wake-up source.
+         Otherwise, the device may fail to wake out of suspend reliably.
+         The default is false. -->
+    <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>
+
+    <!-- Screen brightness when dozing -->
+
+    <integer name="config_screenBrightnessDoze">1</integer>
+
+</resources>
